@@ -3,9 +3,112 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Home</h1>
-        <p>
-          This is the home page.
-        </p>
+        <p>This is the home page.</p>
+        <!-- <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">List Books</h5>
+                  <table class="table datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of data; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.author }}</td>
+                        <td>{{ item.author }}</td>
+                        <td>{{ item.author }}</td>
+                        <td>{{ item.author }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+        <section class="section">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">List Book</h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of data; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.author }}</td>
+                    <td>{{ item.year }}</td>
+                    <td>
+                      <span
+                        class="badge rounded-pill"
+                        [ngClass]="{
+                          'bg-danger': item.status == 'Unavailable',
+                          'bg-success': item.status == 'Available'
+                        }"
+                        >{{ item.status }}</span
+                      >
+                    </td>
+                    <td>{{ item.Category.name }}</td>
+                    <td>
+                      <!-- make dropdown -->
+                      <div class="dropdown">
+                        <button
+                          class="btn"
+                          type="button"
+                          id="dropdownMenuButton1"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                        <i class="bi bi-three-dots-vertical"></i>
+                          <!-- <i class="ri-menu-3-line"></i> -->
+                        </button>
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuButton1"
+                        >
+                        <li>
+                          <a class="dropdown-item" href="#"><i class="bi bi-eye"></i> Show</a>
+                        </li>
+                          <li>
+                            <a class="dropdown-item" href="#"><i class="bi bi-pencil"></i> Edit</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#"><i class="bi bi-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6"></div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
