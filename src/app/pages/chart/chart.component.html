@@ -3,36 +3,61 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Chart</h1>
-        <p>This is the chart page.</p>
+        <p>This is the chart page. {{ 13793885420 | currency : "IDR" }}</p>
         <section class="section">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Count Book by Category</h5>
-                  <canvas
+                  <h5 class="card-title text-center">
+                    Filtering income by Username
+                  </h5>
+                  <div class="d-flex justify-content-end">
+                    <form>
+                      <select
+                        class="form-select shadow"
+                        style="max-width: 140px; border-radius: 15px"
+                        formcontrolname="month"
+                        (change)="filterByUser($event)"
+                        name="sel2"
+                        [(ngModel)]="lang"
+                      >
+                        <option
+                          [value]="item"
+                          *ngFor="let item of month"
+                        >
+                          {{ item }}
+                        </option>
+                      </select>
+                    </form>
+                  </div>
+                  <!-- <canvas
                     id="countByCategory"
                     style="max-height: 400px"
-                  ></canvas>
+                  ></canvas> -->
+                  <!-- <canvas id="income" style="max-height: 400px"></canvas> -->
+                  <canvas id="income2" style="max-height: 400px"></canvas>
                 </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Count Book by Status</h5>
+                  <h5 class="card-title text-center">
+                    Quantity Product by Username
+                  </h5>
+                  <canvas id="countQtyBar" style="max-height: 400px"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Income by Month</h5>
                   <canvas
-                    id="countByStatus"
+                    id="incomeWithLine"
                     style="max-height: 400px"
                   ></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Line Chart</h5>
-                  <canvas id="lineChart" style="max-height: 400px"></canvas>
                 </div>
               </div>
             </div>

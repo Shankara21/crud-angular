@@ -1,3 +1,4 @@
+import { CreateComponent } from './pages/books/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -71,7 +72,9 @@ const routes: Routes = [
   { path: 'pages-register', component: PagesRegisterComponent },
   { path: 'user-profile', component: UsersProfileComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'chart', component: ChartComponent }
+  { path: 'chart', component: ChartComponent },
+  { path: 'create-book', component: CreateComponent },
+  { path: 'book/:id/edit', component: CreateComponent },
 ];
 
 @NgModule({

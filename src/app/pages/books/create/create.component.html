@@ -1,0 +1,86 @@
+<main class="main" id="main">
+  <div class="container">
+    <!-- <h1>Create Book</h1> -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Insert New Book</h5>
+        <form>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label"
+              >Title</label
+            >
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputText" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label"
+              >Author</label
+            >
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label"
+              >Category</label
+            >
+            <div class="mb-3 col-sm-10">
+              <select
+                class="form-select"
+                id="floatingSelect"
+                aria-label="State"
+              >
+                <option
+                  *ngFor="let item of tempData"
+                  ngValue="'{{ item.name }}'"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label"
+              >Publisher</label
+            >
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label"
+              >Description</label
+            >
+            <div class="col-sm-10">
+              <textarea
+                class="form-control"
+                placeholder="Description"
+                id="floatingTextarea"
+                style="height: 100px"
+                data-dl-input-translation="true"
+                spellcheck="false"
+              ></textarea>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-2"></div>
+            <div class="row col-sm-12 col-lg-10">
+              <div class="col-6">
+                <input type="number" class="form-control" id="inputPassword" />
+              </div>
+              <div class="col-6">
+                <input type="number" class="form-control" id="inputPassword" />
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mx-2">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

@@ -42,6 +42,8 @@ import { PagesError404Component } from './pages/pages-error404/pages-error404.co
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChartComponent } from './pages/chart/chart.component';
+import { CreateComponent } from './pages/books/create/create.component';
+import { EditComponent } from './pages/books/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ChartComponent } from './pages/chart/chart.component';
     PagesError404Component,
     PagesBlankComponent,
     HomeComponent,
-    ChartComponent
+    ChartComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
