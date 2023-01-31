@@ -197,10 +197,7 @@ export class ChartComponent implements OnInit {
     }
     console.log(this.lang);
     this.ControlService.filterIncomeByMonth(this.lang).subscribe((res: any) => {
-      // console.log('INI RES');
-      // console.log(res[0]);
       this.income2 = res[0];
-      console.log('Data baru');
 
       console.log(this.income2);
       this.income2.forEach((item: any) => {

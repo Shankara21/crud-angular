@@ -4,13 +4,18 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Insert New Book</h5>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="submit()">
           <div class="row mb-3">
             <label for="inputEmail3" class="col-sm-2 col-form-label"
               >Title</label
             >
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputText" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputText"
+                formControlName="title"
+              />
             </div>
           </div>
           <div class="row mb-3">
@@ -18,7 +23,12 @@
               >Author</label
             >
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputEmail"
+                formControlName="author"
+              />
             </div>
           </div>
           <div class="row mb-3">
@@ -27,13 +37,14 @@
             >
             <div class="mb-3 col-sm-10">
               <select
+                formControlName="categoryId"
                 class="form-select"
                 id="floatingSelect"
                 aria-label="State"
               >
                 <option
-                  *ngFor="let item of tempData"
-                  ngValue="'{{ item.name }}'"
+                  *ngFor="let item of tempData; index as i"
+                  ngValue="{{ i+1 }}"
                 >
                   {{ item.name }}
                 </option>
@@ -45,7 +56,12 @@
               >Publisher</label
             >
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword" />
+              <input
+                type="text"
+                class="form-control"
+                id="inputPassword"
+                formControlName="publisher"
+              />
             </div>
           </div>
           <div class="row mb-3">
@@ -54,6 +70,7 @@
             >
             <div class="col-sm-10">
               <textarea
+                formControlName="description"
                 class="form-control"
                 placeholder="Description"
                 id="floatingTextarea"
@@ -67,10 +84,26 @@
             <div class="col-sm-2"></div>
             <div class="row col-sm-12 col-lg-10">
               <div class="col-6">
-                <input type="number" class="form-control" id="inputPassword" />
+                <!-- insert a label -->
+                <label>Year</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputPassword"
+                  formControlName="year"
+                />
               </div>
               <div class="col-6">
-                <input type="number" class="form-control" id="inputPassword" />
+                <label for="">Status</label>
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="State"
+                  formControlName="status"
+                >
+                  <option value="Available">Available</option>
+                  <option value="Unavailable">Unavailable</option>
+                </select>
               </div>
             </div>
           </div>
