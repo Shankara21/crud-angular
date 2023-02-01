@@ -47,7 +47,6 @@ export class CreateComponent implements OnInit {
     // year to string
     this.form.value.year = String(this.form.value.year);
     this.controlService.createBook(this.form.value).subscribe((res: any) => {
-      console.log(res);
       this.router.navigate(['/home'])
     }
     )

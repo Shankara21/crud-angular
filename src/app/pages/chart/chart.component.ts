@@ -27,8 +27,6 @@ export class ChartComponent implements OnInit {
   countStatus: any = []
 
 
-  params: any;
-
   // array of month
   month: any[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -161,45 +159,37 @@ export class ChartComponent implements OnInit {
     })
     // this.filterByUser();
   }
-  get f() {
-    return this.form.controls;
-  }
-  lang: any;
-  filterByUser(lang: any) {
-    console.log('INI');
-    console.log(this.form.value.month);
+
+  filterByUser() {
     this.userNamebaru.splice(0)
     this.totalIncomebaru.splice(0)
-    if (this.lang == 'January') {
-      this.lang = 1
-    } else if (this.lang == 'February') {
-      this.lang = 2
-    } else if (this.lang == 'March') {
-      this.lang = 3
-    } else if (this.lang == 'April') {
-      this.lang = 4
-    } else if (this.lang == 'May') {
-      this.lang = 5
-    } else if (this.lang == 'June') {
-      this.lang = 6
-    } else if (this.lang == 'July') {
-      this.lang = 7
-    } else if (this.lang == 'August') {
-      this.lang = 8
-    } else if (this.lang == 'September') {
-      this.lang = 9
-    } else if (this.lang == 'October') {
-      this.lang = 10
-    } else if (this.lang == 'November') {
-      this.lang = 11
-    } else if (this.lang == 'December') {
-      this.lang = 12
+    if (this.form.value.month == 'January') {
+      this.form.value.month = 1
+    } else if (this.form.value.month == 'February') {
+      this.form.value.month = 2
+    } else if (this.form.value.month == 'March') {
+      this.form.value.month = 3
+    } else if (this.form.value.month == 'April') {
+      this.form.value.month = 4
+    } else if (this.form.value.month == 'May') {
+      this.form.value.month = 5
+    } else if (this.form.value.month == 'June') {
+      this.form.value.month = 6
+    } else if (this.form.value.month == 'July') {
+      this.form.value.month = 7
+    } else if (this.form.value.month == 'August') {
+      this.form.value.month = 8
+    } else if (this.form.value.month == 'September') {
+      this.form.value.month = 9
+    } else if (this.form.value.month == 'October') {
+      this.form.value.month = 10
+    } else if (this.form.value.month == 'November') {
+      this.form.value.month = 11
+    } else if (this.form.value.month == 'December') {
+      this.form.value.month = 12
     }
-    console.log(this.lang);
-    this.ControlService.filterIncomeByMonth(this.lang).subscribe((res: any) => {
+    this.ControlService.filterIncomeByMonth(this.form.value.month).subscribe((res: any) => {
       this.income2 = res[0];
-
-      console.log(this.income2);
       this.income2.forEach((item: any) => {
         this.userNamebaru.push(item.username)
         this.totalSellbaru.push(item.total_qty)
@@ -251,44 +241,6 @@ export class ChartComponent implements OnInit {
     })
 
   }
-  barChart(label: any, data: any, target: any) {
-    this.chart = new Chart(target, {
-      type: 'bar',
-      data: {
-        labels: label,
-        datasets: [{
-          label: 'Rp.',
-          data: data,
-          backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    })
-  }
   polarArea(label: any, data: any, target: any) {
     this.chart = new Chart(target, {
       type: 'doughnut',
@@ -320,44 +272,6 @@ export class ChartComponent implements OnInit {
         responsive: true,
         maintainAspectRatio: false,
 
-      }
-    })
-  }
-  pieChart(label: any, data: any, target: any) {
-    this.chart = new Chart(target, {
-      type: 'pie',
-      data: {
-        labels: label,
-        datasets: [{
-          label: 'Total',
-          data: data,
-          backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
       }
     })
   }

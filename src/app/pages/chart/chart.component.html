@@ -3,9 +3,14 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Chart</h1>
-        <p>This is the chart page. {{ 13793885420 | currency : "IDR" }}</p>
+        <p>This is the chart page. </p>
         <section class="section">
           <div class="row">
+            <h1 class="text-center">Books</h1>
+            <div class="col-lg-12">
+
+            </div>
+            <h1 class="text-center">Toko Barokah</h1>
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
@@ -13,18 +18,14 @@
                     Filtering income by Username
                   </h5>
                   <div class="d-flex justify-content-end">
-                    <form>
+                    <form [formGroup]="form">
                       <select
                         class="form-select shadow"
                         style="max-width: 140px; border-radius: 15px"
-                        (change)="filterByUser($event)"
-                        name="sel2"
-                        [(ngModel)]="lang"
+                        (change)="filterByUser()"
+                        formControlName="month"
                       >
-                        <option
-                          [value]="item"
-                          *ngFor="let item of month"
-                        >
+                        <option [value]="item" *ngFor="let item of month">
                           {{ item }}
                         </option>
                       </select>
@@ -39,7 +40,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title text-center">
@@ -49,7 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title text-center">Income by Month</h5>

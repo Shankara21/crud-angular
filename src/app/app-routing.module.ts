@@ -1,3 +1,4 @@
+import { EditComponent } from './pages/books/edit/edit.component';
 import { CreateComponent } from './pages/books/create/create.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
@@ -74,7 +75,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'chart', component: ChartComponent },
   { path: 'create-book', component: CreateComponent },
-  { path: 'book/:id/edit', component: CreateComponent },
+  { path: 'book/:id/edit', component: EditComponent },
 ];
 
 @NgModule({

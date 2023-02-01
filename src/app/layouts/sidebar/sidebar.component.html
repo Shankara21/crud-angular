@@ -60,12 +60,13 @@
        <li class="nav-item"> <a class="nav-link collapsed" routerLink="/pages-blank"> <i class="bi bi-file-earmark"></i> <span>Blank</span> </a></li> -->
 
     <li class="nav-item">
-      <a routerLink="/home" class="nav-link collapsed"
+      <a routerLink="/home" class="nav-link" [routerLinkActive]="'active'"
         ><i class="ri-home-4-line"></i> Home</a
       >
     </li>
     <li class="nav-item">
-      <a routerLink="/chart" class="nav-link collapsed"
+      <a routerLink="/chart" class="nav-link" [routerLinkActive]="'active'"
+
         ><i class="ri-pie-chart-2-line"></i> Chart</a
       >
     </li>

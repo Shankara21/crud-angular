@@ -35,6 +35,21 @@ export class ControlService {
       catchError(this.errorHttpHandler)
     )
   }
+  createBook(book: any) {
+    return this.HttpClient.post(this.baseUrl + '/books', JSON.stringify(book), this.httpOptions).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+  getBookById(id: number) {
+    return this.HttpClient.get(this.baseUrl + '/books/' + id).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+  updateBook(id: number, book: any) {
+    return this.HttpClient.put(this.baseUrl + '/books/' + id, JSON.stringify(book), this.httpOptions).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
 
   //?\\//\\//\\//\\//\\//\\
   //!\\//\\Category//\\//\\
@@ -44,12 +59,7 @@ export class ControlService {
       catchError(this.errorHttpHandler))
   }
 
-  createBook(book: any) {
-    console.log(book);
-    return this.HttpClient.post(this.baseUrl + '/books', JSON.stringify(book), this.httpOptions).pipe(
-      catchError(this.errorHttpHandler)
-    )
-  }
+
 
 
   filterIncomeByMonth(month: any) {
