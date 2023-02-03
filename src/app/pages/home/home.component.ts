@@ -14,15 +14,26 @@ export class HomeComponent implements OnInit {
 
   constructor(private controlService: ControlService, private elementRef: ElementRef) { }
 
+  sizePerPage: number = 2;
+  public selectedPage = 1;
+  books: any;
+
   ngOnInit(): void {
     this.controlService.getAllBooks().subscribe((res: any) => {
       this.data = res;
+      console.log('ini res');
       console.log(this.data);
+      let pageIndex = (this.selectedPage - 1) * this.sizePerPage;
+      this.books = this.data.slice(pageIndex, pageIndex + this.sizePerPage);
     })
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../assets/js/main.js";
-    this.elementRef.nativeElement.appendChild(s);
+
+  }
+  changePageSize(event: Event) {
+
+  }
+
+  get pageNumber(): number[]{
+    return Array(Math.ceil(this.data.length / this.sizePerPage)).fill(0).map((x, i) => i + 1);
   }
 
 }

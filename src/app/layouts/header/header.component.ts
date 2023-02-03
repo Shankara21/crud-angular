@@ -9,11 +9,14 @@ import { DOCUMENT } from '@angular/common'
 export class HeaderComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document) { }
-
+  // date now
+  dateNow = new Date();
   ngOnInit(): void {
+    setInterval(() => {
+      this.dateNow = new Date();
+    }, 1000);
   }
-  sidebarToggle()
-  {
+  sidebarToggle() {
     //toggle sidebar function
     this.document.body.classList.toggle('toggle-sidebar');
   }

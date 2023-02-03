@@ -60,6 +60,19 @@ export class ChartComponent implements OnInit {
 
   newBarchart: any;
 
+  // Status
+  dataStatus: any[] = []
+  bookStatus: any[] = [];
+  boookAmount: any[] = [];
+  statusChart: any;
+
+  // Count book by category
+  dataCategory: any[] = []
+  bookCategory: any[] = [];
+  bookAmount: any[] = [];
+  categoryChart: any;
+
+
   ngOnInit(): void {
     this.ControlService.filterIncomeByMonth(this.monthSelected).subscribe((res: any) => {
       this.income2 = res[0];
@@ -157,37 +170,63 @@ export class ChartComponent implements OnInit {
     this.form = new FormGroup({
       month: new FormControl(''),
     })
-    // this.filterByUser();
+    this.ControlService.countByStatus().subscribe((res: any) => {
+      this.dataStatus = res;
+      this.dataStatus.forEach((item: any) => {
+        this.bookStatus.push(item.status)
+        this.boookAmount.push(item.total)
+      })
+      this.statusChart = new Chart("statusChart", {
+        type: 'doughnut',
+        data: {
+          labels: this.bookStatus,
+          datasets: [{
+            label: 'amount ',
+            data: this.boookAmount,
+            backgroundColor: [
+              '#00425A',
+              '#1F8A70',
+            ]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+        }
+      })
+    })
+    this.ControlService.countByCategory().subscribe((res: any) => {
+      this.dataCategory = res;
+      this.dataCategory.forEach((item: any) => {
+        this.bookCategory.push(item.Category.name)
+        this.bookAmount.push(item.total)
+      })
+      this.categoryChart = new Chart("categoryChart", {
+        type: 'doughnut',
+        data: {
+          labels: this.bookCategory,
+          datasets: [{
+            label: 'amount ',
+            data: this.bookAmount,
+            backgroundColor: [
+              '#D61355',
+              '#F94A29',
+              '#FCE22A',
+              '#30E3DF',
+            ]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+        }
+      })
+    })
   }
 
   filterByUser() {
     this.userNamebaru.splice(0)
     this.totalIncomebaru.splice(0)
-    // if (this.form.value.month == 'January') {
-    //   this.form.value.month = 1
-    // } else if (this.form.value.month == 'February') {
-    //   this.form.value.month = 2
-    // } else if (this.form.value.month == 'March') {
-    //   this.form.value.month = 3
-    // } else if (this.form.value.month == 'April') {
-    //   this.form.value.month = 4
-    // } else if (this.form.value.month == 'May') {
-    //   this.form.value.month = 5
-    // } else if (this.form.value.month == 'June') {
-    //   this.form.value.month = 6
-    // } else if (this.form.value.month == 'July') {
-    //   this.form.value.month = 7
-    // } else if (this.form.value.month == 'August') {
-    //   this.form.value.month = 8
-    // } else if (this.form.value.month == 'September') {
-    //   this.form.value.month = 9
-    // } else if (this.form.value.month == 'October') {
-    //   this.form.value.month = 10
-    // } else if (this.form.value.month == 'November') {
-    //   this.form.value.month = 11
-    // } else if (this.form.value.month == 'December') {
-    //   this.form.value.month = 12
-    // }
     this.ControlService.filterIncomeByMonth(this.form.value.month).subscribe((res: any) => {
       this.income2 = res[0];
       this.income2.forEach((item: any) => {

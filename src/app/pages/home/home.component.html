@@ -57,7 +57,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of data; index as i">
+                  <tr *ngFor="let item of books; index as i">
                     <th scope="row">{{ i + 1 }}</th>
                     <td>{{ item.title }}</td>
                     <td>{{ item.author }}</td>
@@ -96,7 +96,9 @@
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" routerLink="/book/{{item.id}}/edit"
+                            <a
+                              class="dropdown-item"
+                              routerLink="/book/{{ item.id }}/edit"
                               ><i class="bi bi-pencil"></i> Edit</a
                             >
                           </li>
@@ -111,10 +113,27 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="row">
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div class="form-inline float-left mr-1">
+                    <select
+                      [value]="sizePerPage"
+                      (change)="changePageSize($event)"
+                      class="form-select shadow" style="border-radius: 20px;"
+                    >
+                      <option value="4">4 per page</option>
+                      <option value="8">8 per page</option>
+                      <option value="12">12 per page</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-10 d-flex justify-content-center">
+                  <button class="btn btn-outline-primary active" *ngFor="let item of pageNumber">
+{{ item }}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6"></div>
           </div>
         </section>
       </div>
