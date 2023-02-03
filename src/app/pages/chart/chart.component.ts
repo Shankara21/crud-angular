@@ -163,31 +163,31 @@ export class ChartComponent implements OnInit {
   filterByUser() {
     this.userNamebaru.splice(0)
     this.totalIncomebaru.splice(0)
-    if (this.form.value.month == 'January') {
-      this.form.value.month = 1
-    } else if (this.form.value.month == 'February') {
-      this.form.value.month = 2
-    } else if (this.form.value.month == 'March') {
-      this.form.value.month = 3
-    } else if (this.form.value.month == 'April') {
-      this.form.value.month = 4
-    } else if (this.form.value.month == 'May') {
-      this.form.value.month = 5
-    } else if (this.form.value.month == 'June') {
-      this.form.value.month = 6
-    } else if (this.form.value.month == 'July') {
-      this.form.value.month = 7
-    } else if (this.form.value.month == 'August') {
-      this.form.value.month = 8
-    } else if (this.form.value.month == 'September') {
-      this.form.value.month = 9
-    } else if (this.form.value.month == 'October') {
-      this.form.value.month = 10
-    } else if (this.form.value.month == 'November') {
-      this.form.value.month = 11
-    } else if (this.form.value.month == 'December') {
-      this.form.value.month = 12
-    }
+    // if (this.form.value.month == 'January') {
+    //   this.form.value.month = 1
+    // } else if (this.form.value.month == 'February') {
+    //   this.form.value.month = 2
+    // } else if (this.form.value.month == 'March') {
+    //   this.form.value.month = 3
+    // } else if (this.form.value.month == 'April') {
+    //   this.form.value.month = 4
+    // } else if (this.form.value.month == 'May') {
+    //   this.form.value.month = 5
+    // } else if (this.form.value.month == 'June') {
+    //   this.form.value.month = 6
+    // } else if (this.form.value.month == 'July') {
+    //   this.form.value.month = 7
+    // } else if (this.form.value.month == 'August') {
+    //   this.form.value.month = 8
+    // } else if (this.form.value.month == 'September') {
+    //   this.form.value.month = 9
+    // } else if (this.form.value.month == 'October') {
+    //   this.form.value.month = 10
+    // } else if (this.form.value.month == 'November') {
+    //   this.form.value.month = 11
+    // } else if (this.form.value.month == 'December') {
+    //   this.form.value.month = 12
+    // }
     this.ControlService.filterIncomeByMonth(this.form.value.month).subscribe((res: any) => {
       this.income2 = res[0];
       this.income2.forEach((item: any) => {

@@ -44,6 +44,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChartComponent } from './pages/chart/chart.component';
 import { CreateComponent } from './pages/books/create/create.component';
 import { EditComponent } from './pages/books/edit/edit.component';
+import { ShowComponent } from './pages/books/show/show.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { EditComponent } from './pages/books/edit/edit.component';
     HomeComponent,
     ChartComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,

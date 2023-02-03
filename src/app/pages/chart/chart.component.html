@@ -25,7 +25,7 @@
                         (change)="filterByUser()"
                         formControlName="month"
                       >
-                        <option [value]="item" *ngFor="let item of month">
+                        <option [value]="i+1" *ngFor="let item of month;index as i">
                           {{ item }}
                         </option>
                       </select>
